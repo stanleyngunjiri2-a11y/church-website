@@ -1300,3 +1300,257 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* --------------------------------------------------
+   INTERIOR PAGES
+-------------------------------------------------- */
+
+.interior-page {
+  min-height: 60vh;
+  background: #faf9f6;
+}
+
+.interior-hero {
+  padding: 92px 0 82px;
+  background: #eeeee5;
+  border-bottom: 1px solid rgba(48, 67, 48, 0.09);
+}
+
+.interior-hero h1 {
+  max-width: 850px;
+  margin: 18px 0;
+  color: #293b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.interior-intro {
+  max-width: 690px;
+  color: #59645a;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.interior-content {
+  padding-top: 76px;
+  padding-bottom: 92px;
+}
+
+.content-narrow {
+  max-width: 790px;
+  margin: 0 auto 48px;
+}
+
+.interior-content h2 {
+  margin: 34px 0 15px;
+  color: #293b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.interior-content h3 {
+  margin: 13px 0 10px;
+  color: #293b2d;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.interior-content p {
+  color: #626a61;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 42px 0;
+}
+
+.content-card {
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e8e8df;
+  border-radius: 3px;
+}
+
+.content-card > svg {
+  color: #687c5c;
+}
+
+.content-card p {
+  margin-bottom: 12px;
+  font-size: 0.96rem;
+}
+
+.content-reference {
+  display: inline-block;
+  margin-top: 12px;
+  color: #718065;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.content-step {
+  display: flex;
+  gap: 22px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e5e6dd;
+}
+
+.content-step > svg {
+  flex: 0 0 auto;
+  margin-top: 15px;
+  color: #718065;
+}
+
+.content-step h3 {
+  margin-top: 8px;
+}
+
+.content-step p {
+  margin-bottom: 0;
+}
+
+.content-quote {
+  margin: 25px 0;
+  padding: 30px;
+  background: #eeeee5;
+  border-left: 3px solid #718065;
+  color: #394b3a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+}
+
+.content-form {
+  max-width: 760px;
+  margin: 55px auto;
+  padding: 38px;
+  background: #fff;
+  border: 1px solid #e8e8df;
+}
+
+.content-form .form-heading {
+  margin-bottom: 25px;
+}
+
+.content-callout {
+  margin-top: 60px;
+  padding: 48px;
+  background: #eeeee5;
+  text-align: center;
+}
+
+.content-callout > svg {
+  color: #718065;
+}
+
+.content-callout h2 {
+  margin-top: 12px;
+}
+
+.content-callout p {
+  max-width: 650px;
+  margin: 0 auto 24px;
+}
+
+.content-video {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin: 55px 0;
+  padding: 38px;
+  background: #fff;
+  border: 1px solid #e8e8df;
+}
+
+.content-video h2 {
+  margin-top: 0;
+}
+
+.content-video-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: #eeeee5;
+  color: #52664d;
+}
+
+.legal-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.legal-content h2 {
+  margin-top: 36px;
+  font-size: 1.55rem;
+}
+
+.legal-content ul {
+  padding-left: 24px;
+  color: #626a61;
+  line-height: 1.9;
+}
+
+.legal-updated {
+  margin-bottom: 35px;
+  font-size: 0.9rem !important;
+}
+
+.content-notice {
+  margin-top: 45px;
+  padding: 22px;
+  background: #eeeee5;
+  border-left: 3px solid #718065;
+  font-size: 0.92rem !important;
+}
+
+@media (max-width: 760px) {
+  .interior-hero {
+    padding: 66px 0 58px;
+  }
+
+  .interior-content {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .content-card {
+    padding: 26px;
+  }
+
+  .content-form {
+    padding: 24px;
+  }
+
+  .content-callout {
+    padding: 32px 22px;
+  }
+
+  .content-video {
+    flex-direction: column;
+    padding: 26px;
+  }
+
+  .content-step {
+    gap: 15px;
+  }
+
+  .content-quote {
+    padding: 23px;
+  }
+}
