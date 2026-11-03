@@ -1,0 +1,1302 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f6;
+  --foreground: #292d29;
+  --green: #526b50;
+  --deep-green: #344b38;
+  --sage: #a5b39a;
+  --beige: #efe9dd;
+  --muted: #77766f;
+  --white: #ffffff;
+  --border: #e6e2d8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 3px;
+}
+
+.page-container {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: 105px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  line-height: 1.5;
+}
+
+.button {
+  min-height: 52px;
+  padding: 0 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--green);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--deep-green);
+}
+
+.button-outline {
+  background: white;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.button-outline:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.button-light {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--deep-green);
+}
+
+.button-light:hover {
+  background: var(--beige);
+}
+
+/* HEADER */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 249, 246, 0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  width: min(1240px, calc(100% - 48px));
+  min-height: 82px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: var(--beige);
+  color: var(--green);
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  color: var(--deep-green);
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.brand-name small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.desktop-nav a {
+  color: #55584f;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.desktop-nav a:hover {
+  color: var(--green);
+}
+
+.header-cta {
+  padding: 12px 17px;
+  background: var(--green);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.header-cta:hover {
+  background: var(--deep-green);
+}
+
+.mobile-menu-button,
+.mobile-nav {
+  display: none;
+}
+
+/* HERO */
+
+.hero-section {
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #3d5041;
+  color: white;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(26, 42, 31, 0.86) 0%, rgba(37, 54, 41, 0.68) 48%, rgba(38, 50, 39, 0.2) 100%),
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85");
+  background-size: cover;
+  background-position: center 48%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-block: 100px 115px;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #e1e8d9;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.hero-content h1 {
+  max-width: 790px;
+  margin: 28px 0 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 6.2vw, 75px);
+  font-weight: 400;
+  letter-spacing: -2.5px;
+  line-height: 1.12;
+}
+
+.hero-content h1 span {
+  color: #d5dfc8;
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.hero-verse {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.hero-verse strong {
+  color: #d8e0ce;
+  font-weight: 600;
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  background: rgba(31, 47, 35, 0.58);
+  color: white;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.hero-bottom-line {
+  width: 25px;
+  height: 1px;
+  background: #a5b39a;
+}
+
+/* WELCOME */
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 95px;
+}
+
+.welcome-visual {
+  position: relative;
+  padding: 0 25px 25px 0;
+}
+
+.welcome-photo {
+  min-height: 480px;
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85");
+  background-size: cover;
+  background-position: center;
+}
+
+.photo-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  color: white;
+  background: linear-gradient(transparent, rgba(22, 37, 25, 0.75));
+}
+
+.photo-caption span {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.photo-caption p {
+  margin-bottom: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.welcome-badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 190px;
+  min-height: 90px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--beige);
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.welcome-copy h2,
+.section-heading h2,
+.video-copy h2,
+.prayer-copy h2,
+.contact-content h2 {
+  margin: 15px 0 23px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4.5vw, 49px);
+  font-weight: 400;
+  letter-spacing: -1.4px;
+  line-height: 1.2;
+}
+
+.welcome-copy h2 span,
+.section-heading h2 span,
+.video-copy h2 span,
+.prayer-copy h2 span,
+.contact-content h2 span {
+  color: var(--green);
+  font-style: italic;
+}
+
+.welcome-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.text-link {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.text-link:hover {
+  color: var(--deep-green);
+}
+
+/* SALVATION */
+
+.salvation-section {
+  background: var(--beige);
+}
+
+.section-heading {
+  max-width: 650px;
+}
+
+.centered-heading {
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.section-heading > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.salvation-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.salvation-card {
+  min-height: 300px;
+  position: relative;
+  padding: 36px 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(82, 107, 80, 0.08);
+}
+
+.featured-card {
+  background: var(--green);
+  color: white;
+}
+
+.card-number {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  color: var(--sage);
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+
+.salvation-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--beige);
+  color: var(--green);
+}
+
+.featured-card .salvation-icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.salvation-card h3 {
+  margin: 0 0 12px;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.salvation-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.featured-card p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.featured-card .card-number {
+  color: #d4dfcc;
+}
+
+.salvation-action {
+  margin-top: 38px;
+  text-align: center;
+}
+
+/* VERSES */
+
+.verses-section {
+  background: var(--background);
+}
+
+.verses-grid {
+  margin-top: 43px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.verse-card {
+  min-height: 245px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.verse-card > svg {
+  color: var(--green);
+}
+
+.verse-theme {
+  margin: 18px 0 10px;
+  display: block;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.verse-card p {
+  min-height: 75px;
+  color: #5c6058;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.verse-card strong {
+  color: var(--deep-green);
+  font-size: 12px;
+}
+
+/* VIDEO */
+
+.video-section {
+  background: var(--beige);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.video-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.video-placeholder {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(39, 56, 42, 0.5), rgba(39, 56, 42, 0.72)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85") center/cover;
+  color: white;
+}
+
+.video-placeholder-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.play-button {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid white;
+  color: white;
+  transition: background 0.2s;
+}
+
+.video-placeholder-content span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.video-placeholder-content p {
+  margin-top: 5px;
+  font-family: Georgia, serif;
+  font-size: 19px;
+}
+
+/* PRAYER */
+
+.prayer-section {
+  background: #f5f3ed;
+}
+
+.prayer-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: 90px;
+}
+
+.prayer-copy {
+  padding-top: 30px;
+}
+
+.prayer-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.prayer-promise {
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--beige);
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 14px;
+}
+
+.prayer-form-card {
+  padding: 38px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(39, 49, 35, 0.04);
+}
+
+.form-heading {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.form-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--beige);
+  color: var(--green);
+}
+
+.form-heading h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.form-heading p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.prayer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  color: #41463e;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-field label span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: #fdfcf9;
+  color: var(--foreground);
+  font-size: 12px;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #a09e95;
+}
+
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.consent-checkbox input {
+  margin-top: 4px;
+  accent-color: var(--green);
+}
+
+.form-submit {
+  width: 100%;
+}
+
+.form-privacy {
+  margin: -8px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.form-success {
+  padding-block: 35px;
+  color: var(--green);
+  text-align: center;
+}
+
+.form-success h3 {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.form-success p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: var(--deep-green);
+  color: white;
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 800px;
+}
+
+.contact-content .eyebrow {
+  color: #c5d3b9;
+}
+
+.contact-content h2 span {
+  color: #d1ddc6;
+}
+
+.contact-content > p:not(.eyebrow) {
+  max-width: 550px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
+
+.contact-methods {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact-item {
+  min-width: 155px;
+  min-height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-item span {
+  font-size: 12px;
+}
+
+.contact-content .contact-placeholder-note {
+  margin-top: 25px;
+  font-size: 11px;
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding-top: 65px;
+  background: #252f27;
+  color: white;
+}
+
+.footer-main {
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+}
+
+.footer-logo .brand-name {
+  color: white;
+}
+
+.footer-logo .brand-name small {
+  color: #bdc8b9;
+}
+
+.footer-brand > p {
+  max-width: 320px;
+  color: #c2c8bf;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.footer-socials {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #596357;
+  color: white;
+}
+
+.footer-socials a:hover {
+  background: var(--green);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.footer-links h4 {
+  margin: 5px 0 12px;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.footer-links a,
+.footer-cookie-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #c2c8bf;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.footer-links a:hover,
+.footer-cookie-button:hover {
+  color: white;
+}
+
+.footer-bottom {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #495249;
+  color: #bdc4ba;
+  font-size: 10px;
+}
+
+/* COOKIE POPUP */
+
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(25, 34, 26, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.cookie-dialog {
+  width: min(530px, 100%);
+  max-height: 90vh;
+  position: relative;
+  overflow-y: auto;
+  padding: 38px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
+}
+
+.cookie-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  background: var(--beige);
+  color: var(--green);
+}
+
+.cookie-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.cookie-dialog h2 {
+  margin: 8px 0 16px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.cookie-description {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.cookie-description a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-actions {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cookie-actions .button {
+  width: 100%;
+}
+
+.cookie-settings-button {
+  padding: 9px;
+  border: none;
+  background: transparent;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.cookie-settings {
+  margin-top: 24px;
+}
+
+.cookie-setting-row {
+  padding-block: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cookie-setting-row strong {
+  font-size: 12px;
+}
+
+.cookie-setting-row p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.always-active {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.cookie-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.cookie-toggle input {
+  accent-color: var(--green);
+}
+
+.cookie-save {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1050px) {
+  .desktop-nav {
+    gap: 16px;
+  }
+
+  .desktop-nav a {
+    font-size: 11px;
+  }
+
+  .welcome-grid,
+  .prayer-grid {
+    gap: 50px;
+  }
+
+  .video-grid {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--deep-green);
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    padding: 12px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--background);
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--foreground);
+    font-size: 13px;
+  }
+
+  .mobile-nav .mobile-nav-cta {
+    margin-top: 15px;
+    padding: 13px;
+    background: var(--green);
+    color: white;
+    text-align: center;
+  }
+
+  .welcome-grid,
+  .prayer-grid,
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-grid {
+    gap: 55px;
+  }
+
+  .welcome-photo {
+    min-height: 420px;
+  }
+
+  .prayer-grid {
+    gap: 35px;
+  }
+
+  .prayer-copy {
+    padding-top: 0;
+  }
+
+  .video-grid {
+    gap: 35px;
+  }
+
+  .footer-main {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page-container,
+  .header-inner {
+    width: calc(100% - 36px);
+  }
+
+  .section-padding {
+    padding-block: 70px;
+  }
+
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .hero-section {
+    min-height: 650px;
+  }
+
+  .hero-image {
+    background-position: 58% center;
+  }
+
+  .hero-content {
+    padding-block: 75px 100px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(39px, 10vw, 55px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    max-width: 300px;
+  }
+
+  .hero-verse {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+
+  .hero-bottom {
+    gap: 12px;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .welcome-photo {
+    min-height: 350px;
+  }
+
+  .welcome-grid {
+    gap: 40px;
+  }
+
+  .welcome-copy h2,
+  .section-heading h2,
+  .video-copy h2,
+  .prayer-copy h2,
+  .contact-content h2 {
+    font-size: 36px;
+  }
+
+  .salvation-cards,
+  .verses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salvation-card {
+    min-height: 250px;
+  }
+
+  .verse-card {
+    min-height: 210px;
+  }
+
+  .video-placeholder {
+    min-height: 260px;
+  }
+
+  .prayer-form-card {
+    padding: 24px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-item {
+    min-height: 70px;
+    flex-direction: row;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    padding-block: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cookie-dialog {
+    padding: 28px 22px;
+  }
+
+  .cookie-dialog h2 {
+    font-size: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
